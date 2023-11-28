@@ -1,0 +1,306 @@
+﻿<!DOCTYPE html>
+<script type="module" src="scripts/menu.js">
+
+</script>
+
+<html>
+<head>
+    <title>Smartdesk Homepage</title>
+    <link rel="stylesheet" href="styles.css">
+    <!--Icon lib-->
+    <!--Icon font awesome lib-->
+    <script src="https://kit.fontawesome.com/966b4c031d.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+<body style="margin:0;">
+    <div class="page-wrapper" style="flex-direction:column;display:none">
+        <div class="container container-header" style="max-width:100%;height:6rem; background-color:white; margin-bottom:0px; position:relative; align-items:center ">
+            <img class="logo" src="Logo-DH-Cong-Nghe-Thong-Tin-UIT.webp" style="height:3.4rem;margin-top:-1rem; margin-left:5rem" />
+            <div class="logo text-box" style="margin-top:0; padding-bottom:1rem; margin-left:0.4rem">
+                <div class="text" style="margin-top:1% ;">University of Information Technology - VNUHCM</div>
+                <div class="text group-name" style="margin-top:0.2rem ;font-size:2rem">Smart Desk</div>
+            </div>
+            <div class="profile-box" id="profile">
+                <img class="profile" />
+                <div class="logo text-box" style="margin-top:0; padding-top:0.3rem">
+                    <div class="text" style="margin-top:1% ;color:gray" id="Username">User</div>
+                    <div class="text" style="margin-top:1% ; font-size:0.7rem" id="Userid">ID Number</div>
+                </div>
+                <dialog class="modal modalprofile" id="modalprofile">
+                    <div>User Profile</div>
+                    <div>Password</div>
+                    <div id="Signout">Signout</div>
+                </dialog>
+            </div>
+            <div class="toolbar">
+                <div class="button-wrap">
+                    <input type="button" id="Home" value="Homepage">
+                    <dialog id="modalHome" class="modal">
+                        <div class="text modal-button">TEST</div>
+                        <div class="text modal-button">TEST</div>
+                        <div class="text modal-button">TEST</div>
+                    </dialog>
+                </div>
+                <div class="button-wrap">
+                    <input type="button" id="Product" value="Product" />
+                    <dialog id="modalProduct" class="modal">
+                        <div class="text">TEST</div>
+                        <div class="text">TEST</div>
+                        <div class="text">TEST</div>
+                    </dialog>
+                </div>
+                <div class="button-wrap">
+                    <input type="button" id="Community" value="Community" />
+                    <dialog id="modalCommunity" class="modal">
+                        <div class="text">TEST</div>
+                        <div class="text">TEST</div>
+                        <div class="text">TEST</div>
+                    </dialog>
+                </div>
+                <div class="button-wrap">
+                    <input type="button" id="About" value="About us" />
+                    <dialog id="modalAbout" class="modal">
+                        <div class="text">TEST</div>
+                        <div class="text">TEST</div>
+                        <div class="text">TESTESTESTEST</div>
+                    </dialog>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-wrapper">
+            <div class="box-shadow box b1">
+                <div class="container container-header" style="left:-5px; background-color:white; width:105%; height:25%; justify-content:center">
+                    <div class="text" style="padding-top:0.4rem">Thông tin lớp học</div>
+                </div>
+                <div class="input-wrapper" style="height:70%">
+                    <div class="container container-header " style="box-shadow:none; background-color:white; z-index:-1;">
+                        <div class="text" style="color:red">Lớp học</div>
+                    </div>
+                    <ul class="description">
+                        <li>Số lượng bàn: </li>
+                        <li>Số bàn trống:</li>
+                        <li>Số bàn online:</li>
+                        <li>Số bàn offline:</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="box-shadow box b2">
+                <div class="teacher-wrap">
+                    <div class="teacher-wrap second">
+                        <div class="teacher-name">Lecturer: </div>
+                        <img class="profile teacher-profile" />
+                        <div class="teacher-role">Test</div>
+                        <ul class="description">
+                            <li>TEST 1</li>
+                            <li>TEST 2</li>
+                            <li>TEST 3</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="box-shadow box b3" id="table-box">
+                <div class="class-header">
+                    <div class="teacher-table">LECTURER <div class="table"></div></div>
+                </div>
+                <div class="class-status">
+                    <div class="status-box">
+                        <div class="status"><div class="status-circle"></div><span>OFFLINE</span></div>
+                        <div class="status"><div class="status-circle"></div><span>NONE</span></div>
+                        <div class="status"><div class="status-circle"></div><span>ONLINE</span></div>
+                        <div class="status"><div class="status-circle"></div><span>UNAVAILABLE</span></div>
+                    </div>
+                </div>
+                <div class="seat-wrap">
+                    <div class="class-seat" id="class-seat0"></div>
+                    <div class="class-seat" id="class-seat1"></div>
+                    <div class="class-seat" id="class-seat2"></div>
+                    <script>
+                        for (let i = 0; i <= 2; i++) {
+                            let outerDiv = document.getElementById('class-seat' + i);
+                            for (let j = 0; j <= 11; j++) {
+                                var seatId = j + i * 12;
+                                let boxDiv = document.createElement('div');
+                                boxDiv.setAttribute('class', 'seat');
+                                boxDiv.setAttribute('id', 'seat' + seatId);
+                                outerDiv.appendChild(boxDiv);
+                            }
+                        }
+                    </script>
+                </div>
+            </div>
+            <div class="box-shadow box b1 calender">
+                <div class="container-header calender">
+                    <div class="calender-header">
+                        <div class="month-number" id="monthN"></div>
+                        <div class="year" id="year"></div>
+                        <div class="month-letter" id="monthL"></div>
+                    </div>
+                </div>
+                <div class="calender-grid" id="calender">
+                </div>
+            </div>
+            <div class="box-shadow box b2">BOX 5</div>
+            <dialog class="table-modal" id="modal">
+                <div class="modal-cover">
+                    <div class="modal-wrap" id="profileModal">
+                        <img class="profile" />
+                        <div class="text-box">
+                            <div class="text" id="modal-name">Name</div>
+                            <div class="text" id="modal-id">Id</div>
+                        </div>
+                    </div>
+                    <div class="modal-wrap">
+                        <div class="text table-text" id="tableid">
+                            Table NaN
+                        </div>
+                        <div class="text table-text" id="tablemode">
+                            Select mode
+                        </div>
+                        <div class="table-in-wrap">
+                            <input type="button" class="table-button box-shadow" id="OffButton" style="display:none" value="OFFLINE">
+                            <input type="button" class="table-button box-shadow" id="OnButton" style="display:none" value="ONLINE">
+                        </div>
+                        <div class="table-in-wrap">
+                            <input type="button" class="table-button register box-shadow" id="RegButton" style="display:none" value="REGISTER">
+                        </div>
+                        <div class="table-in-wrap">
+                            <div class="text-box" id="tableinfo" style="font-weight:normal !important">
+                                <ul>
+                                    <li class="text tableinfo" id="tabletype">Mode: </li>
+                                    <li class="text tableinfo" id="tableid2">Table: </li>
+                                    <li class="text tableinfo" id="tablemail">Email: </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="table-in-wrap" style="position:absolute; align-self:center; bottom:5%">
+                            <input type="button" class="table-button register box-shadow" id="CancelButton" style="display:none; color:white" value="Cancel">
+                        </div>
+                    </div>
+                </div>
+            </dialog>
+        </div>
+
+        <div class="bottom-header">
+            <img class="fce" src="FCE-Site-logo.png" />
+            <div class="text-box bottom">
+                <div class="text bottom"><span style="font-size: 0.68rem;">TRƯỜNG ĐẠI HỌC CÔNG NGHỆ THÔNG TIN</span></div>
+                <div class="text bottom">ĐẠI HỌC QUỐC GIA THÀNH PHỐ HỒ CHÍ MINH</div>
+                <div class="text bottom">&#xa9 COPYRIGHT UITFarmer - CE 2023</div>
+
+            </div>
+            <div class="text-box bottom">
+                <div class="text right"><i class="fa-solid fa-location-dot fa-xl" style="color: #ff3b3b;"></i> &ensp;KP6, Linh Trung, Thủ Đức, TP.HCM</div>
+                <div class="text right" style="display: block;margin-top: 2%;"><i class="fa-solid fa-envelope fa-xl" style="color: #ffdd3b;"></i> &ensp;UITFarmer.K15@gmail.com</div>
+            </div>
+        </div>
+
+        <dialog class="container confirm-box" id="confirm-box">
+            <div class="half-circle">
+            </div>
+
+            <div class="check-icon">
+                <span class="material-symbols-outlined">
+                    done
+                </span>
+            </div>
+
+            <div class="text confirm-text-box" style="width:70%;position:absolute">
+                <div class="text confirm-text">Đăng ký thành công</div>
+                <div class="text confirm-text" id="confirm-table">Table</div>
+                <div class="text confirm-text" id="confirm-mode">Mode</div>
+            </div>
+            <div class="check-icon">
+                <span class="material-symbols-outlined close" id="close">close</span>
+            </div>
+        </dialog>
+
+
+
+
+        <style>
+            .confirm-box {
+                border:none;
+                display:none;
+                max-width: 60%;
+                align-self: center;
+                justify-self: center;
+                border-radius: 10px;
+                left:20%;
+            }
+
+            .confirm-text {
+                font-size: 2rem;
+            }
+
+            .confirm-text:nth-child(2) {
+                font-size: 1rem;
+                font-weight: normal;
+            }
+
+            .confirm-text:nth-child(3) {
+                font-size: 1rem;
+                font-weight: normal;
+            }
+
+            .confirm-text-box {
+                align-self: center;
+                justify-self: center;
+                transform: translate(50%,0);
+            }
+
+            .half-circle {
+                padding: 0;
+                border-radius: 50%;
+                height: 100%;
+                background-color: lightgreen;
+                aspect-ratio: 1/1;
+                transform: translate(-50%,0);
+                opacity: 0.25;
+            }
+
+            .check-icon {
+                position: absolute;
+                display: flex;
+                background-color: darkgreen;
+                border-radius: 50%;
+                width: 4rem;
+                height: 4rem;
+                aspect-ratio: 1/1;
+                justify-content: center;
+                align-items: center;
+                z-index: 11;
+                transform: translate(50%,0);
+                align-self: center;
+            }
+            .check-icon:nth-child(4){
+                align-self:normal;
+                width:2rem;
+                height:2rem;
+                background-color:red;
+                font-weight:bold;
+                font-family: sans-serif;
+                color:white;    
+                font-size:1rem;
+                transform:translate(0,0);
+                left:93%;
+                top:5%;
+                cursor:pointer;
+            }
+
+            .material-symbols-outlined {
+                font-variation-settings: 'FILL' 0, 'wght' 4000, 'GRAD' 0, 'opsz' 24;
+                color: white;
+                font-size: 4rem;
+                font-weight: bolder;
+            }
+            .close {
+                font-size: 2rem;
+                font-weight: normal;
+                font-variation-settings: 'FILL' 0, 'wght' 40, 'GRAD' 0, 'opsz' 24;
+            }
+        </style>
+    </div>
+</body>
+</html>
