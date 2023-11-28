@@ -48,5 +48,5 @@ loginBtn.addEventListener('click', loginWithEmailPassword)
 auth.onAuthStateChanged(user => {
     console.log(user);
     if (user)
-        window.location = "/"
+        window.location = "/SmartdeskFrontend/"
 })

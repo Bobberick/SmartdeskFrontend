@@ -32,7 +32,7 @@ var userInfo = {};
 auth.onAuthStateChanged(user => {
     console.log(user);
     if (!user)
-        window.location = "/login.html"
+        window.location = "/SmartdeskFrontend/login"
     const docRef = doc(db, "users-info",user.uid);
     const docSnap =getDoc(docRef).then(doc => {
         document.getElementsByClassName('page-wrapper')[0].style.display = 'flex';
