@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script defer src="scripts/face-api.min.js"></script>
+  <script type="module" defer src="scripts/face.js"></script>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    canvas {
+      position: absolute;
+    }
+    .video-wrap{
+        display:flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+  </style>
+</head>
+<body>
+    <div class="video-wrap">
+        <video id="video" width="720" height="480" autoplay muted></video>
+        <span id="video-text">Waiting for camera...</span>
+    </div>
+</body>
+</html>
