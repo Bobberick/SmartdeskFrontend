@@ -25,14 +25,15 @@ const auth = getAuth(app);
 const db = getFirestore(app);
 
 
-const data = collection(db, "seat-data");
+const data = await  collection(db, "seat-data");
+console.log(data)
 
 var userInfo = {};
 
 auth.onAuthStateChanged(user => {
-    console.log(user);
     if (!user)
         window.location = "/SmartdeskFrontend/login"
+    console.log(user.auth.persistenceManager.persistence.type) // Local = remember me
     const docRef = doc(db, "users-info",user.uid);
     const docSnap =getDoc(docRef).then(doc => {
         document.getElementsByClassName('page-wrapper')[0].style.display = 'flex';
@@ -43,6 +44,7 @@ auth.onAuthStateChanged(user => {
             userInfo.email = user.email;
             userInfo.uid = user.uid
             userInfo.seat = doc.data()['seat'];
+            userInfo.type = user.auth.persistenceManager.persistence.type;
             document.getElementById('Username').innerHTML = userInfo.name;
             document.getElementById('Userid').innerHTML = userInfo.id;
         } else {
@@ -66,6 +68,10 @@ auth.onAuthStateChanged(user => {
                 let name = document.createElement('span')
                 if (doc.data()["owner"] != userInfo.id) {
                     name.innerHTML = doc.data()["owner"];
+                    if (doc.data()["owner"]== "none" && userInfo.seat=="none") {
+                        userInfo.seat = "seat"+i;
+                        setTable(i);
+                    }
                 }
                 else name.innerHTML = "YOU";
                 Table.appendChild(name);
@@ -87,7 +93,25 @@ auth.onAuthStateChanged(user => {
     }
 
 })
-
+window.addEventListener("beforeunload",async  ()=>{
+    idStr = userInfo.seat;
+    id=idStr.match(/\d+/)[0];
+    await setDoc(doc(data, "seat"+id.toString()), {
+        "owner": 'none',
+        "owner-name": 'none',
+        "seat-id": id,
+        "status": "Available",
+        "type": "Offline",
+        "email": 'none'
+    })
+    await setDoc(doc(db, "users-info", userInfo.uid), {
+        "email": userInfo.email,
+        "id": userInfo.id,
+        "name": userInfo.name,
+        "seat": 'none',
+    })
+    userInfo.seat = "none";
+})
 
 document.getElementById('Signout').addEventListener('click', e => {
     e.preventDefault();
@@ -96,6 +120,49 @@ document.getElementById('Signout').addEventListener('click', e => {
     });
 })
 
+
+async function setTable(id= -1){
+    if (id == -1){
+        console.error('ID MISSING');
+        return;
+    }
+    await setDoc(doc(data, "seat"+id.toString()), {
+        "owner": userInfo.id,
+        "owner-name": userInfo.name,
+        "seat-id": id,
+        "status": "Available",
+        "type": "Offline",
+        "email": userInfo.email
+    })
+    await setDoc(doc(db, "users-info", userInfo.uid), {
+        "email": userInfo.email,
+        "id": userInfo.id,
+        "name": userInfo.name,
+        "seat": "seat"+id.toString(),
+    })
+    userInfo.seat = "seat"+id;
+}
+async function cancelTable(id = -1){
+    if (id == -1){
+        console.error('ID MISSING');
+        return;
+    }
+    await setDoc(doc(data, "seat"+id.toString()), {
+        "owner": 'none',
+        "owner-name": 'none',
+        "seat-id": id,
+        "status": "Available",
+        "type": "Offline",
+        "email": 'none'
+    })
+    await setDoc(doc(db, "users-info", userInfo.uid), {
+        "email": userInfo.email,
+        "id": userInfo.id,
+        "name": userInfo.name,
+        "seat": 'none',
+    })
+    userInfo.seat = "none";
+}
  
 //Modal
 {
