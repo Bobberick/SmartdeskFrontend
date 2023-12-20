@@ -97,12 +97,9 @@ body {
 
 .modalprofile{
 	transform:translate(0,90%);
-	z-index:11;
+	z-index:1;
 }
 
-dialog.modal[open] {
-	animation: slide 150ms ease-in forwards;
-}
 
 .table-modal{
 	border:none;
@@ -615,6 +612,17 @@ toolbar div{
 	justify-content:center;
 	align-items:center;
 	height:100%;
+	width: 90%;
+}
+.teacher-name{
+	font-size:0.7rem;
+	font-weight:bolder;
+	text-align: center;
+}
+.teacher-role{
+	font-size: 0.7rem;
+	font-weight: bold;
+	text-align: center;
 }
 
 .teacher-wrap.second{
@@ -622,7 +630,7 @@ toolbar div{
 	justify-content:flex-start;
 }
 .teacher-name{
-
+	font-size: 0.6rem;
 }
 
 .teacher-profile{
@@ -631,7 +639,7 @@ toolbar div{
 .description{
 	align-self:flex-start;
 	padding:0;
-	font-size:0.8rem;
+	font-size:0.7rem;
 }
 
 .class-header{

@@ -1,0 +1,16 @@
+<body>
+    <input type="button" id="button-id" value="test"/>
+    <script>
+        const button = document.getElementById('button-id');
+
+button.addEventListener('click', function () {
+    fetch('https://api.thingspeak.com/update?api_key=BLQRCLJN5KDHFL9Q&field3=2')
+        .then(function (result) {
+            console.log(result);
+        })
+        .catch(function (err) {
+            console.error(err);
+        });
+});
+    </script>
+</body>

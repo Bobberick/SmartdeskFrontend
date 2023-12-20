@@ -1,0 +1,193 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+a{
+    text-decoration: none;
+}
+.header {
+    width: 100%;
+    min-width: 300px;
+    background: linear-gradient(rgba(0, 101, 254, 0.16), rgba(195, 219, 255, 1));
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+    line-height: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: #464646;
+    color: #333;
+    line-height: 70px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+}
+form {
+    width: 60vw;
+    max-width: 500px;
+    min-width: 300px;
+    margin: 20px auto;
+    padding-bottom: 2em;
+  }
+.form-group {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+    
+}
+
+.form-group label {
+    flex-basis: 30%;
+    text-align: left;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.form-group input {
+    flex-basis: 70%;
+}
+input[type="submit"] {
+    display: block;
+    width: 60%;
+    margin: 1em auto;
+    height: 2em;
+    font-size: 1.1rem;
+    background-color: #0F6FC5;
+    border-color: white;
+    color: #ffffff;
+    min-width: 300px;
+}
+#TTTK{
+    font-size: 20px;
+    font-weight: bold;
+}
+#USERNAME_text{
+    font-size: 20px;
+}
+.user-info {
+    display: flex;
+    align-items: center;
+}
+#uit_logo {
+    margin-left: 100px;
+}
+.text-info {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+}
+.uit-text {
+    margin-left: 10px;
+}
+.UIT_text{
+    font-weight: bold;
+}
+.smartdesk_text{
+    font-size: 35px;
+    font-weight: bold;
+    position: relative;
+    top: -20px;
+    background: linear-gradient(to bottom, rgba(0, 255, 178, 1), rgba(0, 164, 207, 1), rgba(0, 10, 255, 1));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+.user_info_head {
+    display: flex;
+    align-items: center;
+}
+.gap{
+    flex-basis:40%;
+}
+#USERNAME_text_head{
+    position: relative;
+    bottom: -15px;
+}
+#IDnum_text_head{
+    position: relative;
+    top: -15px;
+    font-size: 12px;
+}
+.text-info_head {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+    
+}
+#CE_logo {
+    margin-left: 100px;
+}
+.ce-text {
+    margin-left: 10px;
+}
+.CE_text{
+    font-size: 25px;
+    font-weight: bold;
+    position: relative;
+    bottom: -60px;
+    background: linear-gradient(to bottom, rgba(0, 135, 71, 1), rgba(23, 156, 8, 0.9609), rgba(17, 255, 41, 0.75), rgba(255, 230, 0, 1));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+.CEfull_text1, .CEfull_text2{
+    color: white;
+    font-size: 10px;
+    position: relative;
+    bottom: -10px;
+}
+.CEfull_text2{
+    position: relative;
+    top: -50px;
+}
+.yellow-line {
+    width: 140px;        
+    height: 2px;        
+    background-color: #FDCA69;
+    position: relative;
+    bottom: -35px;
+}
+.UIT-info{
+    text-align: center;
+    color: rgba(255, 255, 255, 0.79);
+    display: flex;
+    justify-content: center;
+}
+.UIT_text1{
+    font-size:15px;
+    position: relative;
+    top: -20px;
+    right: -230px;
+    
+}
+.UIT_text2, .UIT_text3{
+    font-size: 8px;
+}
+.UIT_text3{
+    font-size: 8px;
+    position: relative;
+    bottom: -15px;
+    left: -150px;
+}
+.address, .team-mail{
+    color: white;
+    font-size: 10px;
+}
+#location, .address{
+    position: relative;
+    bottom: -25px;
+    right: -150px;
+}
+#mail, .team-mail{
+    position: relative;
+    top: -25px;
+    right: -150px;
+}

@@ -51,13 +51,17 @@ auth.onAuthStateChanged(user => {
             console.log("Can't find user!");
         }
     })
-
+    let TotalTable = 36;
+    let TotalOnline = 0;
+    let TotalOffline = 0;
     for (let i = 0; i <= 35; i++) {
         let seatPtr = document.getElementById('seat' + i);
         const test = onSnapshot(doc(data, "seat" + i), (doc) => {
             let Table = document.getElementById(doc.id);
             let Availability = doc.data()["status"];
             if (Availability == "Unavailable") {
+                TotalTable--;
+                document.getElementById('Total').innerHTML=TotalTable;
                 while (Table.firstChild)
                     Table.removeChild(Table.lastChild);
                 Table.innerHTML = "Unavailable";
@@ -82,16 +86,27 @@ auth.onAuthStateChanged(user => {
                     temp.innerHTML = doc.data()["type"];
                     temp.setAttribute("style", "font-size:0.5rem");
                     Table.appendChild(temp);
-                    if (doc.data()["type"] == "Online")
+                    if (doc.data()["type"] == "Online"){
                         Table.setAttribute("style", "background-color:#fcc49c");
-                    else
+                        TotalOnline++;
+                        document.getElementById('Online').innerHTML=TotalOnline;
+                        document.getElementById('Empty').innerHTML=TotalTable-TotalOffline-TotalOnline;
+                    }
+                    else{
                         Table.setAttribute("style", "background-color:#6eb575");
+                        TotalOffline++;
+                        document.getElementById('Offline').innerHTML=TotalOffline;
+                        document.getElementById('Empty').innerHTML=TotalTable-TotalOffline-TotalOnline;
+                    }
                 }
             }
 
         })
     }
-
+    document.getElementById('Total').innerHTML=TotalTable;
+    document.getElementById('Online').innerHTML=TotalOnline;
+    document.getElementById('Offline').innerHTML=TotalOffline;
+    document.getElementById('Empty').innerHTML=TotalTable-TotalOffline-TotalOnline;
 })
 window.addEventListener("beforeunload",async  ()=>{
     idStr = userInfo.seat;
@@ -131,7 +146,7 @@ async function setTable(id= -1){
         "owner-name": userInfo.name,
         "seat-id": id,
         "status": "Available",
-        "type": "Offline",
+        "type": "Online",
         "email": userInfo.email
     })
     await setDoc(doc(db, "users-info", userInfo.uid), {
@@ -152,7 +167,7 @@ async function cancelTable(id = -1){
         "owner-name": 'none',
         "seat-id": id,
         "status": "Available",
-        "type": "Offline",
+        "type": "Online",
         "email": 'none'
     })
     await setDoc(doc(db, "users-info", userInfo.uid), {
