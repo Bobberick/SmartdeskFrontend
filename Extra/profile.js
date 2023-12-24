@@ -54,8 +54,13 @@ dropContainer.ondragover = dropContainer.ondragenter = function(evt) {
   };
   
   dropContainer.ondrop = function(evt) {
-    // pretty simple -- but not for IE :(
+    evt.preventDefault();
     myFile.files = evt.dataTransfer.files;
+    let exts = myFile.files[0].name.split('.')[1];
+    console.log(exts);
+    if (exts != 'jpg' &&
+        exts != 'png' &&
+        exts != 'gif') return;
     const storageRef = ref(storage,'customProfilePic/customPic');
     uploadBytes(storageRef, myFile.files[0]).then((snapshot) => {
         getDownloadURL(ref(storage,'customProfilePic/customPic')).then(async(url)=>{
@@ -75,7 +80,6 @@ dropContainer.ondragover = dropContainer.ondragenter = function(evt) {
         dialog.close();
     });
     console.log(myFile.files[0])
-    evt.preventDefault();
   };
 
 
