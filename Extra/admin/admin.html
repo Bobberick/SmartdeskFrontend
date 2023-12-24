@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<script type="module" src="admin.js">
+
+</script>
+<head>
+    <meta charset="UTF-8">
+    <title>ADMIN_MANAGEMENT</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body style="display:none">
+    <div class="header">
+        <a style="display:flex;align-items: center; top:10px;color: inherit;text-decoration:none;" href="/SmartdeskFrontend">
+            <div class="project-info-head">
+                <img id="uit-logo" src="asset\uit_logo.png" alt="uit-logo" width="80px" height="80px">
+                <div class="project-info-head-text">
+                    <div id="UIT_text">University of Information Technology - VNUHCM</div>
+                    <div id="AdministratorManagementSystem_text">Administrator Management System</div>
+                </div>
+            </div>
+        </a>
+        <div class="user_info_head">
+            <img id="default_avt_head" src="asset\default_avt.png" alt="default_avt_image" width="50px" height="50px">
+            <div class="text-info_head">
+                <div id="username">USER NAME</div>
+                <div id="userid">ID num</div>
+            </div>
+        </div>
+
+    </div>
+    <h2 id="Danh-sach-sinh-vien">DANH SÁCH SINH VIÊN</h2>
+    <div class="button-container">
+        <a href="" id="button-1"><img src="asset\change-icon.png" alt="ChangeIcon" width="20px" height="20px"></a>
+        <a href="" id="button-2"><img src="asset\add-icon.png" alt="AddIcon" width="20px" height="20px">Thêm sinh viên</a>
+        <a href="" id="button-3"><img src="asset\sub-icon.png" alt="SubIcon" width="20px" height="20px">Xóa sinh viên</a>
+    </div>
+    <div class="scrollable-table">
+        <table>
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>STT</th>
+                    <th>Họ và Tên</th>
+                    <th>MSSV</th>
+                    <th>Số Điện Thoại</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody id="table">
+                <!-- Thêm hàng dữ liệu ở đây -->
+                
+                <!-- Lặp lại hàng tương tự để tạo thêm dữ liệu -->
+            </tbody>
+        </table>
+    </div>
+    <div class="sltv-text" id="sltv">Số lượng thành viên: <span class="sltv-number">0/0</span></div>
+    
+
+    <div class="footer">
+
+        <div class="CE-info-foot">
+            <img id="CE-logo" src="asset\CE_logo.png" alt="CE-logo" width="60px" height="60px">
+            <div class="CE-info-foot-text">
+                <div id="CE-text">CE</div>
+                <div id="yellow-line"></div>
+                <div id="FacultyofComputerEngineering_text">Faculty of Computer Engineering</div>
+                <div id="UIT-VNUHCM_text">UIT - VNUHCM</div>
+            </div>
+        </div>
+        
+        
+        <div class="UIT-info-foot">
+            <div id="DHCNTT_text">TRƯỜNG ĐẠI HỌC CÔNG NGHỆ THÔNG TIN</div>
+            <div id="DHQGHCM_text">ĐẠI HỌC QUỐC GIA THÀNH PHỐ HỒ CHÍ MINH</div>
+            <div id="COPYRIGHT_text">© COPYRIGHT  UITFarmer - CE 2023.</div>
+        </div>
+
+        <div class="UIT-contact">
+            <div class="icon">
+                <img id="location_icon" src="asset\location.png" alt="location" width="10px" height="10px">
+                <img id="mail_icon" src="asset\mail.png" alt="mail" width="10px" height="10px">
+            </div>
+            
+            <div class="UIT-contact_text">
+                <div id="address">KP6, Linh Trung, Thủ Đức, Tp.HCM</div>
+                <div id="team-mail">UITFarmer.K15@gmail.com</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

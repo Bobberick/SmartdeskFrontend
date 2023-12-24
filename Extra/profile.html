@@ -6,7 +6,7 @@
     <title>USER_PROFILE</title>
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
-<body>
+<body style="display:none">
     <div class="header">
         <a style="display:flex;align-items: center; top:10px;color: inherit;" href="/SmartdeskFrontend">
             <img id="uit_logo" src="img\uit_logo.png" alt="uit_logo" width="60px" height="60px">
@@ -17,42 +17,37 @@
         </a>
         <div class="gap"></div>
         <div class="user_info_head">
-            <img id="default_avt_head" src="img\default_avt.png" alt="default_avt_image" width="50px" height="50px">
+            <img id="userProfilePic" src="img\default_avt.png" alt="default_avt_image"width="50px" height="50px" style="border-radius:50%;overflow:hidden">
                 <div class="text-info_head" style="line-height:1rem;">
                     <span id="Username">USER NAME</span>
                     <span id="Userid">ID num</span>
                 </div>
         </div>
     </div>
-    
     <form method="post" action=''> <!-- Thay link nhận form vào action-->
         <fieldset>
-            <div class="user-info">
-                <img id="default_avt" src="img\default_avt.png" alt="default_avt_image" width="75px" height="75px">
+            <div class="user-info" style="margin-bottom:10px;">
+                <img id="userProfilePic2" src="img\default_avt.png" alt="default_avt_image" width="75px" height="75px" style="border-radius:50%;overflow:hidden">
                 <div class="text-info">
                     <div id="Username2">USER NAME</div>
                     <div id="Userid2">ID num</div>
                     <div>
-                        <a href="" id="changeImageLink">Change image</a> <!-- Thay href sang link thay avt -->
+                        <div class="changeimage" id="changeImageLink">Change image</div> <!-- Thay href sang link thay avt -->
                     </div>
                 </div>
             </div>
             <label id="TTTK">THÔNG TIN TÀI KHOẢN</label><br><br>
             <div class="form-group">
                 <label for="user_full_name">Họ và tên: </label>
-                <input id="user_full_name" name="user_full_name" type="text" required />
-            </div>
-            <div class="form-group">
-                <label for="username">Tên tài khoản: </label>
-                <input id="username" name="username" type="text" required />
+                <input id="username" name="user_full_name" type="text" required />
             </div>
             <div class="form-group">
                 <label for="email">Email: </label>
                 <input id="email" name="email" type="email" required />
             </div>
             <div class="form-group">
-                <label for="show_email">Hiển thị Email: </label>
-                <input id="show_email" name="show_email" type="text" required />
+                <label for="id">MSSV: </label>
+                <input id="id" name="show_email" type="text" required />
             </div>
             <div class="form-group">
                 <label for="phone">Điện thoại: </label>
@@ -64,10 +59,9 @@
 
             </div>
             
-            <input type="submit" value="Chỉnh sửa" />
+            <input type="button" value="Chỉnh sửa" id="submitButton" />
         </fieldset>
       </form>
-
     <div class="footer">
         <img id="CE_logo" src="img\CE_logo.png" alt="CE_logo" width="60px" height="60px">
         <div class="ce-text">
@@ -88,5 +82,27 @@
             <span class="team-mail">UITFarmer.K15@gmail.com</span><br>
         </div>
     </div>
+
+    
+    <dialog id="modal" style="padding:0;border-radius: 10px;border:1px solid gray;box-shadow: 2px 3px 1px gray;height: 60%;width:50%;overflow:hidden;">
+        <div style="display:flex;flex-direction: column; align-items: center;padding: 0;width:100%;">
+            <p style="font-size: 1.5rem; margin:0;padding: 0;font-weight: bolder;text-align: center;">Change Image</p>
+            <div style="display: flex;width: 100%;border-bottom:1px solid gray;">
+                <div id="byDB" class="SelectorBtt">Hình mặc định</div>
+                <div id="byDevice" class="SelectorBtt">Từ thiết bị</div>
+            </div>
+            <div class="imageContainer" id="fromDevice" style="display:flex" ondrop=dropHandler ondragover="return false;">
+                <img id="default_avt" src="img\default_avt.png" alt="default_avt_image" width="75px" height="75px" style="margin-top:10%">
+                <h2 style="margin-bottom:0;">Kéo thả ảnh vào đây</h2>
+                <span style="margin:0;padding:0;font-size:0.8rem; color:gray;">hoặc</span>
+                <div class="Selector" style="margin-top:10px;">
+                <label for="myFile" style="border:1px solid gray; border-radius:5px;padding:5px;color:blue; font-size: 0.8rem;">Tải ảnh từ thiết bị</label>
+                </div>
+                <input type="file" id="myFile" name="filename" style="display:none">
+            </div>
+            <div class="imageContainer DBImage" id="fromDB" style="display:none;">
+            </div>
+        </div>
+    </dialog> 
 </body>
 </html>

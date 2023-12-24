@@ -35,6 +35,7 @@ auth.onAuthStateChanged(user => {
         window.location = "/SmartdeskFrontend/login"
     console.log(user.auth.persistenceManager.persistence.type) // Local = remember me
     const docRef = doc(db, "users-info",user.uid);
+    const docRef2 = doc(db,"users-access",user.uid);
     const docSnap =getDoc(docRef).then(doc => {
         document.getElementsByClassName('page-wrapper')[0].style.display = 'flex';
         if (doc.exists()) {
@@ -44,7 +45,20 @@ auth.onAuthStateChanged(user => {
             userInfo.email = user.email;
             userInfo.uid = user.uid
             userInfo.seat = doc.data()['seat'];
+            userInfo.profileURL = doc.data()['profileURL'];
+            userInfo.phone = doc.data()['phone'];
+            userInfo.address = doc.data()['address'];
+            if (userInfo.profileURL)
+                document.getElementById('userProfilePic').src=userInfo.profileURL;
             userInfo.type = user.auth.persistenceManager.persistence.type;
+            const docSnap2 = getDoc(docRef2).then(doc =>{
+                userInfo.isAdmin = doc.data().isAdmin;
+                if (userInfo.isAdmin){
+                    document.getElementById('adminBtt').style='display:block';
+                    document.getElementById('modalprofile').classList.remove('modalprofile')
+                    document.getElementById('modalprofile').classList.add('modalprofilealt')
+                }
+            })
             document.getElementById('Username').innerHTML = userInfo.name;
             document.getElementById('Userid').innerHTML = userInfo.id;
         } else {
@@ -108,25 +122,6 @@ auth.onAuthStateChanged(user => {
     document.getElementById('Offline').innerHTML=TotalOffline;
     document.getElementById('Empty').innerHTML=TotalTable-TotalOffline-TotalOnline;
 })
-window.addEventListener("beforeunload",async  ()=>{
-    idStr = userInfo.seat;
-    id=idStr.match(/\d+/)[0];
-    await setDoc(doc(data, "seat"+id.toString()), {
-        "owner": 'none',
-        "owner-name": 'none',
-        "seat-id": id,
-        "status": "Available",
-        "type": "Offline",
-        "email": 'none'
-    })
-    await setDoc(doc(db, "users-info", userInfo.uid), {
-        "email": userInfo.email,
-        "id": userInfo.id,
-        "name": userInfo.name,
-        "seat": 'none',
-    })
-    userInfo.seat = "none";
-})
 
 document.getElementById('Signout').addEventListener('click', e => {
     e.preventDefault();
@@ -154,6 +149,9 @@ async function setTable(id= -1){
         "id": userInfo.id,
         "name": userInfo.name,
         "seat": "seat"+id.toString(),
+        "profileURL": userInfo.profileURL,
+        "phone": userInfo.phone,
+        'address':userInfo.address
     })
     userInfo.seat = "seat"+id;
 }
@@ -175,6 +173,9 @@ async function cancelTable(id = -1){
         "id": userInfo.id,
         "name": userInfo.name,
         "seat": 'none',
+        "profileURL": userInfo.profileURL,
+        "phone": userInfo.phone,
+        'address':userInfo.address
     })
     userInfo.seat = "none";
 }
@@ -271,6 +272,9 @@ async function cancelTable(id = -1){
                     "id": userInfo.id,
                     "name": userInfo.name,
                     "seat": seatID,
+                    "profileURL": userInfo.profileURL,
+                    "phone": userInfo.phone,
+                    'address':userInfo.address
                 })
                 userInfo.seat = seatID;
                 modal.close();
@@ -293,6 +297,9 @@ async function cancelTable(id = -1){
                     "id": userInfo.id,
                     "name": userInfo.name,
                     "seat": seatID,
+                    "profileURL": userInfo.profileURL,
+                    "phone": userInfo.phone,
+                    'address':userInfo.address
                 })
                 userInfo.seat = seatID;
                 modal.close();
@@ -319,6 +326,9 @@ async function cancelTable(id = -1){
                 "id": userInfo.id,
                 "name": userInfo.name,
                 "seat": 'none',
+                "profileURL": userInfo.profileURL,
+                "phone": userInfo.phone,
+                'address':userInfo.address
             })
             userInfo.seat = "none";
         }

@@ -99,6 +99,10 @@ body {
 	transform:translate(0,90%);
 	z-index:1;
 }
+.modalprofilealt{
+	transform:translate(0,65%);
+	z-index:1;
+}
 
 
 .table-modal{
@@ -254,6 +258,7 @@ toolbar div{
 	border-radius:50%;
 	width:3rem;
 	height:3rem;
+	aspect-ratio: 1/1;
 	align-self:flex-end
 }
 

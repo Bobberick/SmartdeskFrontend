@@ -22,16 +22,19 @@
                 <div class="text group-name" style="margin-top:0.2rem ;font-size:2rem">Smart Desk</div>
             </div>
             <div class="profile-box" id="profile">
-                <img class="profile" />
-                <div class="logo text-box" style="margin-top:0; padding-top:0.3rem">
-                    <div class="text" style="margin-top:1% ;color:gray" id="Username">User</div>
-                    <div class="text" style="margin-top:1% ; font-size:0.7rem" id="Userid">ID Number</div>
+                <div style="display:flex">
+                    <img class="profile" id="userProfilePic" />
+                    <div class="logo text-box" style="margin-top:0; padding-top:0.3rem">
+                        <div class="text" style="margin-top:1% ;color:gray;width:548px" id="Username">User</div>
+                        <div class="text" style="margin-top:1% ; font-size:0.7rem" id="Userid">ID Number</div>
+                    </div>
+                    <dialog class="modal modalprofile" id="modalprofile">
+                        <div><a href="Extra/profile" style="color: inherit;text-decoration: none;">User Profile</a></div>
+                        <div>Password</div>
+                        <div style="display:none" id="adminBtt"><a href="Extra/admin/admin" style="color: inherit;text-decoration: none;">Acc Config</a></div>
+                        <div id="Signout">Signout</div>
+                    </dialog>
                 </div>
-                <dialog class="modal modalprofile" id="modalprofile">
-                    <a href="Extra/profile" style="color: inherit;text-decoration: none;">User Profile</a>
-                    <div>Password</div>
-                    <div id="Signout">Signout</div>
-                </dialog>
             </div>
             <div class="toolbar">
                 <div class="button-wrap">

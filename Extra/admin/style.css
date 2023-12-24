@@ -1,0 +1,214 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+}
+.header {
+    width: 100%;
+    background: linear-gradient(rgba(0, 101, 254, 0.16), rgba(195, 219, 255, 1));
+    padding: 20px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+}
+.project-info-head {
+    display: flex;
+    align-items: center;
+    margin-left: 100px;
+    margin-right: auto;
+}
+.project-info-head-text{
+    margin-left: 10px;
+    line-height: 45px;
+}
+#UIT_text{
+    font-weight: bold;
+}
+#AdministratorManagementSystem_text{
+    font-size: 30px;
+    font-weight: bold;
+    position: relative;
+    background: linear-gradient(to bottom, rgba(0, 255, 178, 1), rgba(0, 164, 207, 1), rgba(0, 10, 255, 1));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+.user_info_head {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    margin-right: 100px;
+}
+.text-info_head{
+    margin-left: 10px;
+    line-height: 25px;
+}
+#USERNAME_text_head{
+    color: rgba(100, 100, 100, 1);
+}
+#IDnum_text_head{
+    font-size: 13px;
+}
+.footer {
+    height: 100px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    background: rgba(70, 70, 70, 1);
+}
+.CE-info-foot{
+    display: flex;
+    align-items: center;
+    margin-left: 300px;
+    margin-right: auto;
+}
+.CE-info-foot-text{
+    margin-left: 10px;
+}
+#CE-text{
+    font-size: 40px;
+    font-weight: bold;
+    position: relative;
+    top: -5px;
+    background: linear-gradient(to bottom, rgba(0, 135, 71, 1), rgba(23, 156, 8, 0.9609), rgba(17, 255, 41, 0.75), rgba(255, 230, 0, 1));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+#yellow-line {
+    width: 140px;        
+    height: 2px;        
+    background-color: #FDCA69;
+    position: relative;
+    top: -10px;
+}
+#FacultyofComputerEngineering_text{
+    font-size: 10px;
+    color: rgba(255, 255, 255, 1);
+    position: relative;
+    top: -5px;
+}
+#UIT-VNUHCM_text{
+    font-size: 10px;
+    color: rgba(255, 255, 255, 1);
+    position: relative;
+    top: -5px;
+}
+.UIT-info-foot{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    color: rgba(255, 255, 255, 1);
+}
+#DHCNTT_text{
+    font-size: 15px;
+}
+#DHQGHCM_text, #COPYRIGHT_text{
+    font-size: 10px;
+}
+.UIT-contact{
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    margin-right: 300px;
+}
+.icon{
+    display: flex;
+    flex-direction: column;
+    line-height: 20px;
+}
+.UIT-contact_text{
+    margin-left: 10px;
+    color: rgba(255, 255, 255, 1);
+}
+#location_icon{
+    position: relative;
+    top: -5px;
+}
+#mail_icon{
+    position: relative;
+    bottom: -5px;
+}
+/* ======================================================================== */
+#Danh-sach-sinh-vien{
+    font-size: 40px;
+    margin-left: 150px;
+}
+.button-container {
+    text-align: right;
+    margin-bottom: 10px;
+    margin-right: 200px;
+}
+#button-1 img, #button-2 img, #button-3 img{
+    position: relative;
+    bottom: -4px;
+}
+#button-1 {
+    text-decoration: none;
+    padding: 10px 10px;
+    margin: 5px;
+    background-color: rgba(46, 221, 232, 1);
+    color: white;
+    border-radius: 5px;
+    font-weight: bold;
+}
+#button-2 {
+    text-decoration: none;
+    padding: 10px 10px;
+    margin: 5px;
+    background-color: rgba(22, 115, 255, 1);
+    color: white;
+    border-radius: 5px;
+    font-weight: bold;
+}
+#button-3 {
+    text-decoration: none;
+    padding: 10px 10px;
+    margin: 5px;
+    background-color: rgba(253, 70, 70, 1);
+    color: white;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.link-button:hover {
+    background-color: navy;
+}
+
+.scrollable-table {
+    width: 80%;
+    margin: 20px auto;
+    max-height: 500px;
+    overflow-y: scroll;
+    border-collapse: collapse;
+    font-size: 30px;
+
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+th, td {
+    border: 1px solid black;
+    padding: 15px;
+    text-align: center;
+}
+thead th {
+    background-color: rgba(210, 228, 255, 1);
+    color: black;
+}
+.sltv-text {
+    text-align: right;
+    padding: 5px;
+    width: 80%;
+    margin:auto;
+    color: rgba(155, 149, 149, 1);
+    font-size: 40px;
+}
+.sltv-number {
+    color: red;
+}
