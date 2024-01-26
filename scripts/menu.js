@@ -29,7 +29,7 @@ const data = await  collection(db, "seat-data");
 console.log(data)
 
 var userInfo = {};
-function updateTableInfo{
+function updateTableInfo() {
     let TotalTable = 36;
     let TotalOnline = 0;
     let TotalOffline = 0;
