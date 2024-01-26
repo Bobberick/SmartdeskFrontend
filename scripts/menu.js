@@ -29,7 +29,64 @@ const data = await  collection(db, "seat-data");
 console.log(data)
 
 var userInfo = {};
+function updateTableInfo{
+    let TotalTable = 36;
+    let TotalOnline = 0;
+    let TotalOffline = 0;
+    for (let i = 0; i <= 35; i++) {
+        let seatPtr = document.getElementById('seat' + i);
+        const test = onSnapshot(doc(data, "seat" + i), (doc) => {
+            let Table = document.getElementById(doc.id);
+            let Availability = doc.data()["status"];
+            if (Availability == "Unavailable") {
+                TotalTable--;
+                document.getElementById('Total').innerHTML = TotalTable;
+                while (Table.firstChild)
+                    Table.removeChild(Table.lastChild);
+                Table.innerHTML = "Unavailable";
+                Table.setAttribute("style", "background-color:red");
+            }
+            else {
+                Table.innerHTML = '';
+                let name = document.createElement('span')
+                if (doc.data()["owner"] != userInfo.id) {
+                    name.innerHTML = doc.data()["owner"];
+                    if (doc.data()["owner"] == "none" && userInfo.seat == "none") {
+                        userInfo.seat = "seat" + i;
+                        setTable(i);
+                    }
+                }
+                else name.innerHTML = "YOU";
+                Table.appendChild(name);
+                if (doc.data()["owner"] == "none")
+                    Table.setAttribute("style", "background-color:gray");
+                else {
+                    let temp = document.createElement('span')
+                    temp.innerHTML = doc.data()["type"];
+                    temp.setAttribute("style", "font-size:0.5rem");
+                    Table.appendChild(temp);
+                    if (doc.data()["type"] == "Online") {
+                        Table.setAttribute("style", "background-color:#fcc49c");
+                        TotalOnline++;
+                        document.getElementById('Online').innerHTML = TotalOnline;
+                        document.getElementById('Empty').innerHTML = TotalTable - TotalOffline - TotalOnline;
+                    }
+                    else {
+                        Table.setAttribute("style", "background-color:#6eb575");
+                        TotalOffline++;
+                        document.getElementById('Offline').innerHTML = TotalOffline;
+                        document.getElementById('Empty').innerHTML = TotalTable - TotalOffline - TotalOnline;
+                    }
+                }
+            }
 
+        })
+    }
+    document.getElementById('Total').innerHTML = TotalTable;
+    document.getElementById('Online').innerHTML = TotalOnline;
+    document.getElementById('Offline').innerHTML = TotalOffline;
+    document.getElementById('Empty').innerHTML = TotalTable - TotalOffline - TotalOnline;
+}
 auth.onAuthStateChanged(user => {
     if (!user)
         window.location = "/SmartdeskFrontend/login"
@@ -398,6 +455,7 @@ async function cancelTable(id = -1){
                     } else {
                         console.log("No such document!");
                     }
+                    updateTableInfo();
                 })
                 OffButton.classList.remove('selected');
                 OnButton.classList.remove('selected');
