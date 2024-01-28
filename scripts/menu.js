@@ -29,6 +29,7 @@ const data = await  collection(db, "seat-data");
 console.log(data)
 
 var userInfo = {};
+//Iterate and check all the table's current status
 function updateTableInfo() {
     let TotalTable = 36;
     let TotalOnline = 0;
@@ -187,7 +188,7 @@ document.getElementById('Signout').addEventListener('click', e => {
     });
 })
 
-
+//Assign the table given the id to the user
 async function setTable(id= -1){
     if (id == -1){
         console.error('ID MISSING');
@@ -276,7 +277,7 @@ async function cancelTable(id = -1){
 
 
 }
-
+//This mess is for the modal effect when clicking the table
 {
     
     let items = document.querySelectorAll('.seat');
