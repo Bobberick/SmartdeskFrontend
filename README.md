@@ -10,3 +10,5 @@ This code can be run on Github Page without much setup
 Face recognition are done by using Faceapi.js, might have problem loading and running on some hardware and mobilephone
 
 Some of the functions for this project was not finished, namely the function for admin to change/remove users info
+
+Link to try out the Github Page: https://bobberick.github.io/SmartdeskFrontend/
